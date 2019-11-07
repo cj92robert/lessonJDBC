@@ -11,6 +11,12 @@ public class Vehicle {
     public Vehicle() {
     }
 
+    public Vehicle(String brand, String model, long productionYear) {
+        this.brand = brand;
+        this.model = model;
+        this.productionYear = productionYear;
+    }
+
     public Vehicle(long vehicleId, String brand, String model, long productionYear) {
         this.vehicleId = vehicleId;
         this.brand = brand;

@@ -49,18 +49,18 @@ public class VehicleDaoImpl implements VehicleDao {
                 new Vehicle(rs.getLong("vehicle_id"),
                         rs.getString("brand"),
                         rs.getString("model"),
-                        rs.getLong("productionyear")
+                        rs.getLong("production_year")
                 )
         );
     }
 
     @Override
-    public List<Vehicle> findByProductionYearBetween(String yearBeg, String yearEnd) {
+    public List<Vehicle> findByProductionYearBetween(Long yearBeg, Long yearEnd) {
         return jdbcTemplate.query("SELECT * FROM vehicles WHERE production_year BETWEEN ? AND ?", (rs, rowNum) ->
                         new Vehicle(rs.getLong("vehicle_id"),
                                 rs.getString("brand"),
                                 rs.getString("model"),
-                                rs.getLong("productionyear")
+                                rs.getLong("production_year")
                         ),
                 yearBeg, yearEnd
         );
@@ -72,7 +72,7 @@ public class VehicleDaoImpl implements VehicleDao {
                         new Vehicle(rs.getLong("vehicle_id"),
                                 rs.getString("brand"),
                                 rs.getString("model"),
-                                rs.getLong("productionyear")
+                                rs.getLong("production_year")
                         ),
                 id
 

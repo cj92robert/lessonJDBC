@@ -15,7 +15,7 @@ public interface VehicleDao {
 
     List<Vehicle> findAll();
 
-    List<Vehicle> findByProductionYearBetween(String yearBeg, String yearEnd);
+    List<Vehicle> findByProductionYearBetween(Long yearBeg, Long yearEnd);
 
     Vehicle findById(Long id);
 }
