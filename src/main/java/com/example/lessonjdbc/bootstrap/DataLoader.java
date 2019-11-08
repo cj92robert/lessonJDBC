@@ -23,11 +23,11 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         String sql =
-                "CREATE TABLE vehicles(vehicle_id int NOT NULL AUTO_INCREMENT,brand varchar(255),model varchar(255),production_year int, PRIMARY KEY(vehicle_id) )";
+                "CREATE TABLE vehicles(vehicle_id int NOT NULL AUTO_INCREMENT,brand varchar(255),model varchar(255),production_year int,color varchar(255), PRIMARY KEY(vehicle_id) )";
         //jdbcTemplate.update(sql);
 
-        Vehicle vehicle1 = new Vehicle("audi", "a2", 2019L);
+        Vehicle vehicle1 = new Vehicle("bmw", "e46", 2009L, "BLACK");
 
-        vehicleDao.save(vehicle1);
+        //vehicleDao.save(vehicle1);
     }
 }

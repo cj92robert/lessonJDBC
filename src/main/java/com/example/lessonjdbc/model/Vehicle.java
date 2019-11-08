@@ -7,21 +7,32 @@ public class Vehicle {
     private String brand;
     private String model;
     private long productionYear;
+    private String color;
 
     public Vehicle() {
     }
 
-    public Vehicle(String brand, String model, long productionYear) {
-        this.brand = brand;
-        this.model = model;
-        this.productionYear = productionYear;
-    }
-
-    public Vehicle(long vehicleId, String brand, String model, long productionYear) {
+    public Vehicle(long vehicleId, String brand, String model, long productionYear, String color) {
         this.vehicleId = vehicleId;
         this.brand = brand;
         this.model = model;
         this.productionYear = productionYear;
+        this.color = color;
+    }
+
+    public Vehicle(String brand, String model, long productionYear, String color) {
+        this.brand = brand;
+        this.model = model;
+        this.productionYear = productionYear;
+        this.color = color;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public long getVehicleId() {

@@ -26,15 +26,15 @@ public class VehicleDaoImpl implements VehicleDao {
     @Override
     public int save(Vehicle vehicle) {
         return jdbcTemplate.update(
-                "INSERT INTO vehicles (brand,model,production_year) values(?,?,?) ",
-                vehicle.getBrand(), vehicle.getModel(), vehicle.getProductionYear());
+                "INSERT INTO vehicles (brand,model,production_year,color) values(?,?,?,?) ",
+                vehicle.getBrand(), vehicle.getModel(), vehicle.getProductionYear(), vehicle.getColor());
     }
 
     @Override
     public int update(Vehicle vehicle) {
         return jdbcTemplate.update(
-                "UPDATE vehicles SET brand=?, model=?,production_year=? where vehicle_id=?",
-                vehicle.getBrand(), vehicle.getModel(), vehicle.getProductionYear(), vehicle.getVehicleId());
+                "UPDATE vehicles SET brand=?, model=?,production_year=?, color=? where vehicle_id=?",
+                vehicle.getBrand(), vehicle.getModel(), vehicle.getProductionYear(), vehicle.getColor(), vehicle.getVehicleId());
     }
 
     @Override
@@ -49,7 +49,8 @@ public class VehicleDaoImpl implements VehicleDao {
                 new Vehicle(rs.getLong("vehicle_id"),
                         rs.getString("brand"),
                         rs.getString("model"),
-                        rs.getLong("production_year")
+                        rs.getLong("production_year"),
+                        rs.getString("color")
                 )
         );
     }
@@ -60,7 +61,8 @@ public class VehicleDaoImpl implements VehicleDao {
                         new Vehicle(rs.getLong("vehicle_id"),
                                 rs.getString("brand"),
                                 rs.getString("model"),
-                                rs.getLong("production_year")
+                                rs.getLong("production_year"),
+                                rs.getString("color")
                         ),
                 yearBeg, yearEnd
         );
@@ -72,7 +74,8 @@ public class VehicleDaoImpl implements VehicleDao {
                         new Vehicle(rs.getLong("vehicle_id"),
                                 rs.getString("brand"),
                                 rs.getString("model"),
-                                rs.getLong("production_year")
+                                rs.getLong("production_year"),
+                                rs.getString("color")
                         ),
                 id
 
