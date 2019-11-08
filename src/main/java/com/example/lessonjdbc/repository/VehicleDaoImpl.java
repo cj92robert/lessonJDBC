@@ -39,7 +39,7 @@ public class VehicleDaoImpl implements VehicleDao {
 
     @Override
     public int deleteById(Long id) {
-        return jdbcTemplate.update("DELETE vehicles WHERE vehicle_id=?",
+        return jdbcTemplate.update("DELETE FROM vehicles WHERE vehicle_id=?",
                 id);
     }
 
